@@ -12,12 +12,13 @@ const { NotFoundError } = require("./utils/errors");
 const errorMapper = require("./middlewares/errorMapper");
 const errorHandler = require("./middlewares/errorHandler");
 const { requestLogger, errorLogger } = require("./middlewares/logger");
+const { MONGODB } = require("./utils/constants");
 
 const app = express();
 const { PORT = 3001 } = process.env;
 const globalLimiter = rateLimit({ ...limiterConfig, max: 100 });
 
-mongoose.connect("mongodb://127.0.0.1:27017/wtck_db");
+mongoose.connect(MONGODB);
 
 app.use(globalLimiter);
 app.use(cors(corsConfig));

@@ -3,8 +3,9 @@ const jwt = require("jsonwebtoken");
 const User = require("../models/user");
 const { CREATED } = require("../utils/responses");
 const { NotFoundError } = require("../utils/errors");
+const { JWTDEV } = require("../utils/constants");
 
-const { JWT_SECRET = "Secret-For-Dev" } = process.env;
+const { JWT_SECRET = JWTDEV } = process.env;
 
 module.exports.getCurrentUser = async (req, res, next) => {
   try {
