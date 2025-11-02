@@ -56,29 +56,3 @@ module.exports.updateUser = async (req, res, next) => {
     next(error);
   }
 };
-
-module.exports.addFavorite = async (req, res, next) => {
-  try {
-    const { mealName, imageUrl, mealId } = req.body;
-    const user = await User.findById(req.user._id).orFail();
-    const isThere = user.favorites.some((item) => item.mealId === mealId);
-    if (!isThere) {
-      user.favorites.push({ mealName, imageUrl, mealId });
-      await user.save();
-    }
-    res.send(user.favorites);
-  } catch (error) {
-    next(error);
-  }
-};
-module.exports.removeFavorite = async (req, res, next) => {
-  try {
-    const { mealId } = req.body;
-    const user = await User.findById(req.user._id).orFail();
-    user.favorites = user.favorites.filter((item) => item.mealId !== mealId);
-    await user.save();
-    res.send(user.favorites);
-  } catch (error) {
-    next(error);
-  }
-};

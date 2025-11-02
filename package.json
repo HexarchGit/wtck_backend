@@ -30,7 +30,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "npx eslint .",
     "dev": "nodemon app.js",
-    "start": "node app.js"
+    "start": "node app.js",
+    "sync": "node scripts/ingredientSync.js"
   },
   "author": "Sergei Sushko",
   "license": "ISC",

@@ -18,8 +18,11 @@ For project used Node.js platform with Express.js framework and MongoDB as a dat
 - Modular structure
 - Proxy for TheMealDB with response caching
 - Basic security for the website (CROS, DDOS protection, access rules)
+- REST API
 
 ##
 
 - [Me on LinkedIn](https://www.linkedin.com/in/sushkosa)
 - [React frontend on Github](https://github.com/HexarchGit/wtck_frontend)
+- [Deployed frontend](https://wtck.jumpingcrab.com)
+- [Deployed backend](https://api.wtck.jumpingcrab.com)

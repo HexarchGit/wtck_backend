@@ -35,16 +35,6 @@ const userSchema = new mongoose.Schema({
     required: true,
     select: false,
   },
-  favorites: {
-    type: [
-      {
-        mealId: { type: String, required: true },
-        mealName: { type: String },
-        imageUrl: { type: String },
-      },
-    ],
-    default: [],
-  },
 });
 
 userSchema.statics.findUserByCredentials = async function findUserByCredentials(

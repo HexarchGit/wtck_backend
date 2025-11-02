@@ -27,18 +27,8 @@ const password = Joi.string().required().messages({
   "string.empty": 'The "password" field must be filled in',
 });
 
-const imageUrl = Joi.string().required().custom(validateURL).messages({
-  "string.empty": 'The "imageUrl" field must be filled in',
-  "string.uri": 'the "imageUrl" field must be a valid url',
-});
-
 const mealId = Joi.string().required().messages({
   "string.empty": 'The "mealId" field must be filled in',
-});
-
-const mealName = Joi.string().min(2).required().messages({
-  "string.min": 'The minimum length of the "mealName" field is 2',
-  "string.empty": 'The "mealName" field must be filled in',
 });
 
 module.exports.validateCreateUser = celebrate({
@@ -66,9 +56,7 @@ module.exports.validateLogin = celebrate({
 
 module.exports.validateAddFavorite = celebrate({
   body: Joi.object().keys({
-    imageUrl,
     mealId,
-    mealName,
   }),
 });
 
