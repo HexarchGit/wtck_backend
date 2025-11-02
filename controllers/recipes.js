@@ -34,7 +34,7 @@ const getMealsByingredient = async (req, res, next) => {
   try {
     const ingredientName = req.url
       .replace("/filter.php?i=", "")
-      .replace("%20", " ");
+      .replaceAll("%20", " ");
     const mealMap = new Map();
     const ingredientDb = await Ingredient.findOne({ name: ingredientName });
     const localRecipes = await Recipe.find({
